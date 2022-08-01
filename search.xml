@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>MySQL</title>
+    <url>/2022/08/01/JavaWeb/Mysql/2022-7-31/</url>
+    <content><![CDATA[<h3 id="DDL-Data-Definition-Language-：数据定义语言"><a href="#DDL-Data-Definition-Language-：数据定义语言" class="headerlink" title="DDL(Data Definition Language)：数据定义语言"></a>DDL(Data Definition Language)：数据定义语言</h3><p>内容包括：</p>
+<ul>
+<li>对数据库的常用操作</li>
+<li>对表结构的常用操作</li>
+<li>修改表结构</li>
+</ul>
+<h4 id="1-对数据库的常用操作"><a href="#1-对数据库的常用操作" class="headerlink" title="1.对数据库的常用操作"></a>1.对数据库的常用操作</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220731211229.png" width=80%></div>
+
+<h4 id="2-对表结构的常用操作"><a href="#2-对表结构的常用操作" class="headerlink" title="2.对表结构的常用操作"></a>2.对表结构的常用操作</h4><p>创建表</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801094747.png" width=80%></div>
+
+<p>数据类型(对具体每列进行限定，选择原则：够用就行)</p>
+<ul>
+<li><p>数值类型</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801100054.png" width=80%></div>
+</li>
+<li><p>日期和时间类型</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801100521.png" width=80%></div>
+</li>
+<li><p>字符串类型</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801100454.png" width=80%></div></li>
+</ul>
+<h4 id="3-对表结构的其它常用操作"><a href="#3-对表结构的其它常用操作" class="headerlink" title="3.对表结构的其它常用操作"></a>3.对表结构的其它常用操作</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801100750.png" width=80%></div>
+
+<ul>
+<li><p>修改表添加列</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801101219.png" width=80%></div>
+修改数据库就是：alter database, 修改表就是：alter table
+</li>
+<li><p>修改列名和类型</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801101658.png" width=80%></div>
+</li>
+<li><p>修改表删除列</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801101854.png" width=80%></div>
+</li>
+<li><p>修改表名</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801102051.png" width=80%></div></li>
+</ul>
+<h4 id="DDL代码样例"><a href="#DDL代码样例" class="headerlink" title="DDL代码样例"></a>DDL代码样例</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># <span class="keyword">sql</span>不区分大小写<span class="operator">!</span></span><br><span class="line"># <span class="number">1.</span> 对数据库的操作</span><br><span class="line"># 查看所有数据库</span><br><span class="line"><span class="keyword">show</span> databases;  </span><br><span class="line"></span><br><span class="line"># 创建数据库if <span class="keyword">not</span>可省</span><br><span class="line"><span class="keyword">create</span> database mydb1;</span><br><span class="line"><span class="keyword">create</span> database if <span class="keyword">not</span> <span class="keyword">exists</span> mydb1;  </span><br><span class="line"></span><br><span class="line"># 选择使用哪一个数据库</span><br><span class="line">use mydb1;  </span><br><span class="line"></span><br><span class="line"># 删除数据库</span><br><span class="line"><span class="keyword">drop</span> database mydb1;  </span><br><span class="line"><span class="keyword">drop</span> database if <span class="keyword">exists</span> mydb1;</span><br><span class="line"></span><br><span class="line"># 修改数据库编码(自身就是utf<span class="number">-8</span>)</span><br><span class="line"><span class="keyword">alter</span> database mydb1 <span class="type">character</span> <span class="keyword">set</span> utf8;  </span><br><span class="line"></span><br><span class="line"># <span class="number">2.</span> 对表结构的操作</span><br><span class="line"># 创建表</span><br><span class="line">use mydb1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> student(</span><br><span class="line">	sid <span class="type">int</span>,</span><br><span class="line">	name <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">	gender <span class="type">varchar</span>(<span class="number">10</span>),</span><br><span class="line">	age <span class="type">int</span>,</span><br><span class="line">	birth <span class="type">date</span>,</span><br><span class="line">	address <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">	score <span class="keyword">double</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># <span class="number">3.</span> 查看当前数据库所有的表</span><br><span class="line"><span class="keyword">show</span> tables;</span><br><span class="line"># <span class="number">4.</span> 查看指定表的创建语句</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> student;</span><br><span class="line"># <span class="number">5.</span> 查看表结构 description</span><br><span class="line"><span class="keyword">desc</span> student;</span><br><span class="line"># <span class="number">6.</span> 删除表</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> student;</span><br><span class="line"></span><br><span class="line"># <span class="number">7.</span> 修改表结构</span><br><span class="line"># <span class="number">7.1</span> 添加列</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student <span class="keyword">add</span> dept <span class="type">varchar</span>(<span class="number">20</span>);</span><br><span class="line"># <span class="number">7.2</span> 修改列名和类型</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student change dept department <span class="type">varchar</span>(<span class="number">30</span>);</span><br><span class="line"># <span class="number">7.3</span> 删除列</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student <span class="keyword">drop</span> department;</span><br><span class="line"># <span class="number">7.4</span> 修改表名</span><br><span class="line">rename <span class="keyword">table</span> student <span class="keyword">to</span> std;</span><br></pre></td></tr></table></figure>
+<h3 id="DML-Data-Manipuation-Language-：数据操作语言"><a href="#DML-Data-Manipuation-Language-：数据操作语言" class="headerlink" title="DML(Data Manipuation Language)：数据操作语言"></a>DML(Data Manipuation Language)：数据操作语言</h3><p>用于对数据库中表的数据记录进行更新，关键字：</p>
+<ul>
+<li>insert插入</li>
+<li>delete删除</li>
+<li>update更新</li>
+</ul>
+<h4 id="1-数据插入"><a href="#1-数据插入" class="headerlink" title="1.数据插入"></a>1.数据插入</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801103014.png" width=80%></div>
+
+<h4 id="2-数据修改"><a href="#2-数据修改" class="headerlink" title="2.数据修改"></a>2.数据修改</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801103708.png" width=80%></div>
+
+<h4 id="3-数据删除"><a href="#3-数据删除" class="headerlink" title="3.数据删除"></a>3.数据删除</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801104007.png" width=80%></div>
+
+<h4 id="DML代码样例"><a href="#DML代码样例" class="headerlink" title="DML代码样例"></a>DML代码样例</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># DML操作</span><br><span class="line"># <span class="number">1.</span> 数据的插入</span><br><span class="line"># 格式<span class="number">1</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student (sid, name) <span class="keyword">values</span> (<span class="number">1</span>,<span class="string">&#x27;Mxeron&#x27;</span>);  # 根据需求添加几列</span><br><span class="line"># 格式<span class="number">2</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student <span class="keyword">values</span> </span><br><span class="line">(<span class="number">2</span>,<span class="string">&#x27;sxy&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">18</span>,<span class="string">&#x27;2001-12-23&#x27;</span>,<span class="string">&#x27;北京&#x27;</span>, <span class="number">80.5</span>),</span><br><span class="line">(<span class="number">3</span>,<span class="string">&#x27;xsy&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">20</span>,<span class="string">&#x27;2002-1-29&#x27;</span>,<span class="string">&#x27;上海&#x27;</span>, <span class="number">81.5</span>),</span><br><span class="line">(<span class="number">4</span>,<span class="string">&#x27;iuy&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="number">18</span>,<span class="string">&#x27;2000-8-13&#x27;</span>,<span class="string">&#x27;深圳&#x27;</span>, <span class="number">79.5</span>);</span><br><span class="line"># 所有列都要给值</span><br><span class="line"></span><br><span class="line"># <span class="number">2.</span> 数据的修改</span><br><span class="line"><span class="keyword">update</span> student <span class="keyword">set</span> gender<span class="operator">=</span><span class="string">&#x27;男&#x27;</span>, age<span class="operator">=</span><span class="number">21</span>, birth<span class="operator">=</span><span class="string">&#x27;2001-09-09&#x27;</span>, address<span class="operator">=</span><span class="string">&#x27;成都&#x27;</span>, score<span class="operator">=</span><span class="number">89</span></span><br><span class="line"><span class="keyword">where</span> sid<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"># <span class="number">3.</span> 数据的删除</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> student <span class="keyword">where</span> sid<span class="operator">=</span><span class="number">1</span>;</span><br><span class="line"># <span class="keyword">delete</span> <span class="keyword">from</span> student;  # 删除表中所有数据</span><br><span class="line"># <span class="keyword">truncate</span> <span class="keyword">table</span> student;  # 和上面的效果一样,但相当于创建新表</span><br><span class="line"># <span class="keyword">truncate</span> student;</span><br></pre></td></tr></table></figure>
+<h4 id="DML练习"><a href="#DML练习" class="headerlink" title="DML练习"></a>DML练习</h4><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">创建员工表employee,字段为:id, name, gender, salary</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">use mydb1;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> employee(</span><br><span class="line">	id <span class="type">int</span>,</span><br><span class="line">	name <span class="type">varchar</span>(<span class="number">20</span>),</span><br><span class="line">	gender <span class="type">varchar</span>(<span class="number">8</span>),</span><br><span class="line">	salary <span class="keyword">double</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">插入三条数据</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> employee <span class="keyword">values</span></span><br><span class="line">(<span class="number">1001</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">2000</span>),</span><br><span class="line">(<span class="number">1002</span>,<span class="string">&#x27;李四&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="number">3200</span>),</span><br><span class="line">(<span class="number">1003</span>,<span class="string">&#x27;王五&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="number">4000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">修改表结构:</span></span><br><span class="line"><span class="comment">1. 所有员工薪资修改为5000元</span></span><br><span class="line"><span class="comment">2. 将姓名为张三的员工薪资修改为3000元</span></span><br><span class="line"><span class="comment">3. 将姓名为李四的员工薪资修改为4000元，gender为女</span></span><br><span class="line"><span class="comment">4. 所有员工薪资在原有基础上+1000元</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"># <span class="number">1.</span></span><br><span class="line"><span class="keyword">update</span> employee <span class="keyword">set</span> salary<span class="operator">=</span><span class="number">5000</span>;</span><br><span class="line"># <span class="number">2.</span></span><br><span class="line"><span class="keyword">update</span> employee <span class="keyword">set</span> salary<span class="operator">=</span><span class="number">3000</span> <span class="keyword">where</span> name<span class="operator">=</span><span class="string">&#x27;张三&#x27;</span>;</span><br><span class="line"># <span class="number">3.</span></span><br><span class="line"><span class="keyword">update</span> employee <span class="keyword">set</span> salary<span class="operator">=</span><span class="number">4000</span>, gender<span class="operator">=</span><span class="string">&#x27;女&#x27;</span> <span class="keyword">where</span> name<span class="operator">=</span><span class="string">&#x27;李四&#x27;</span>;</span><br><span class="line"># <span class="number">4.</span></span><br><span class="line"><span class="keyword">update</span> employee <span class="keyword">set</span> salary<span class="operator">=</span>salary<span class="operator">+</span><span class="number">1000</span>;  # 或者salary<span class="operator">+</span><span class="number">1000</span>	</span><br></pre></td></tr></table></figure>
+<h3 id="MySQL约束-constraint"><a href="#MySQL约束-constraint" class="headerlink" title="MySQL约束(constraint)"></a>MySQL约束(constraint)</h3><p>约束实际上就是表中数据的限制条件，例如：手机号不能为空，身份证号不能重复</p>
+<p>分类：</p>
+<ul>
+<li>主键约束primary key(PK)</li>
+<li>自增长约束auto_increment</li>
+<li>非空约束not null</li>
+<li>唯一性约束unique</li>
+<li>默认约束default</li>
+<li>零填充约束zerofill</li>
+<li>外键约束foreign key(FK)</li>
+</ul>
+<h4 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220801110116.png" width=80%></div>]]></content>
+      <categories>
+        <category>JavaWeb</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+</search>
