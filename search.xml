@@ -7,7 +7,7 @@
 <ul>
 <li>对数据库的常用操作</li>
 <li>对表结构的常用操作</li>
-<li>修改表结构</li>
+<li>修改表结构<span id="more"></span></li>
 </ul>
 <h4 id="1-对数据库的常用操作"><a href="#1-对数据库的常用操作" class="headerlink" title="1.对数据库的常用操作"></a>1.对数据库的常用操作</h4><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220731211229.png" width=80%></div>
 
