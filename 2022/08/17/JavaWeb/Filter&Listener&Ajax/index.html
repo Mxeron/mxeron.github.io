@@ -22,25 +22,73 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"mxeron.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Mxeron&#39;s Blog, Welcome!">
-<meta property="og:type" content="website">
+    <meta name="description" content="Filter&amp;Listener&amp;Ajax 能够使用 Filter 完成登陆状态校验功能 能够使用 axios 发送 ajax 请求 熟悉 json 格式，并能使用 Fastjson 完成 java 对象和 json 串的相互转换 使用 axios + json 完成综合案例  1，Filter1.1  Filter概述Filter 表示过滤器，是 JavaWeb 三大组件(Serv">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Mxeron">
-<meta property="og:url" content="https://mxeron.github.io/index.html">
+<meta property="og:url" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/index.html">
 <meta property="og:site_name" content="Mxeron">
-<meta property="og:description" content="Mxeron&#39;s Blog, Welcome!">
+<meta property="og:description" content="Filter&amp;Listener&amp;Ajax 能够使用 Filter 完成登陆状态校验功能 能够使用 axios 发送 ajax 请求 熟悉 json 格式，并能使用 Fastjson 完成 java 对象和 json 串的相互转换 使用 axios + json 完成综合案例  1，Filter1.1  Filter概述Filter 表示过滤器，是 JavaWeb 三大组件(Serv">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823184519509.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823184657328.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823185720197.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823185932418.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823191006878.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823191037163.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823191200201.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823191855765.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823192353031.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823193759365.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823194830074.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823195434581.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823195828596.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823200028284.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823200202153.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823215835812.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823221222468.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823223214525.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823224843179.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823225411925.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823230820586.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823235114367.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823235006847.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824000706401.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824001015706.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824001443897.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824001608916.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824005956117.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824010247642.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824010438260.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210824201415745.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210829183854285.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210830232718632.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210831223339530.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210831104901912.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210830234803335.png">
+<meta property="og:image" content="https://mxeron.github.io/assets/image-20210831085332612.png">
+<meta property="og:image" content="https://mxeron.github.io/assets/image-20210831090839336.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210831091604457.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210831093617083.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210831093938057.png">
+<meta property="og:image" content="https://mxeron.github.io/assets/image-20210831100117014.png">
+<meta property="og:image" content="https://mxeron.github.io/assets/image-20210831100329698.png">
+<meta property="og:image" content="https://mxeron.github.io/assets/image-20210831101234467.png">
+<meta property="og:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210831103843798.png">
+<meta property="article:published_time" content="2022-08-17T14:16:27.008Z">
+<meta property="article:modified_time" content="2022-08-18T04:56:33.477Z">
 <meta property="article:author" content="Mxeron">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/assets/image-20210823184519509.png">
 
 
-<link rel="canonical" href="https://mxeron.github.io/">
+<link rel="canonical" href="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/","path":"2022/08/17/JavaWeb/Filter&Listener&Ajax/","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Mxeron</title>
+<title> | Mxeron</title>
   
 
 
@@ -70,7 +118,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Mxeron</h1>
+      <p class="site-title">Mxeron</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -129,7 +177,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -142,6 +190,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter-amp-Listener-amp-Ajax"><span class="nav-text">Filter&amp;Listener&amp;Ajax</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1%EF%BC%8CFilter"><span class="nav-text">1，Filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Filter%E6%A6%82%E8%BF%B0"><span class="nav-text">1.1  Filter概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Filter%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-text">1.2  Filter快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4"><span class="nav-text">1.2.1  开发步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">1.2.2  代码演示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Filter%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-text">1.3  Filter执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Filter%E6%8B%A6%E6%88%AA%E8%B7%AF%E5%BE%84%E9%85%8D%E7%BD%AE"><span class="nav-text">1.4  Filter拦截路径配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E8%BF%87%E6%BB%A4%E5%99%A8%E9%93%BE"><span class="nav-text">1.5  过滤器链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-1-%E6%A6%82%E8%BF%B0"><span class="nav-text">1.5.1  概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-2-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">1.5.2  代码演示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-3-%E9%97%AE%E9%A2%98"><span class="nav-text">1.5.3  问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E6%A1%88%E4%BE%8B"><span class="nav-text">1.6  案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-1-%E9%9C%80%E6%B1%82"><span class="nav-text">1.6.1  需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-2-%E5%88%86%E6%9E%90"><span class="nav-text">1.6.2  分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-3-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-text">1.6.3  代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-3-1-%E5%88%9B%E5%BB%BAFilter"><span class="nav-text">1.6.3.1  创建Filter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-3-2-%E7%BC%96%E5%86%99%E9%80%BB%E8%BE%91%E4%BB%A3%E7%A0%81"><span class="nav-text">1.6.3.2  编写逻辑代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-3-3-%E6%B5%8B%E8%AF%95%E5%B9%B6%E6%8A%9B%E5%87%BA%E9%97%AE%E9%A2%98"><span class="nav-text">1.6.3.3  测试并抛出问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-3-4-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="nav-text">1.6.3.4  问题分析及解决</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-6-3-5-%E8%BF%87%E6%BB%A4%E5%99%A8%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-text">1.6.3.5  过滤器完整代码</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%EF%BC%8CListener"><span class="nav-text">2，Listener</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%A6%82%E8%BF%B0"><span class="nav-text">2.1  概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%88%86%E7%B1%BB"><span class="nav-text">2.2  分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">2.3  代码演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%EF%BC%8CAjax"><span class="nav-text">3，Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E6%A6%82%E8%BF%B0"><span class="nav-text">3.1  概述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-%E4%BD%9C%E7%94%A8"><span class="nav-text">3.1.1  作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="nav-text">3.1.2  同步和异步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-text">3.2  快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">3.2.1 服务端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">3.2.2  客户端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-3-%E6%B5%8B%E8%AF%95"><span class="nav-text">3.2.3  测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E6%A1%88%E4%BE%8B"><span class="nav-text">3.3 案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-1-%E5%88%86%E6%9E%90"><span class="nav-text">3.3.1  分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-2-%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">3.3.2  后端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-3-%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">3.3.3  前端实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%EF%BC%8Caxios"><span class="nav-text">4，axios</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-text">4.1  基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="nav-text">4.2  快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">4.2.1  后端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">4.2.2  前端实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E5%88%AB%E5%90%8D"><span class="nav-text">4.3  请求方法别名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%EF%BC%8CJSON"><span class="nav-text">5，JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E6%A6%82%E8%BF%B0"><span class="nav-text">5.1  概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-JSON-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">5.2  JSON 基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F"><span class="nav-text">5.2.1  定义格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">5.2.2  代码演示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-3-%E5%8F%91%E9%80%81%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%90%BA%E5%B8%A6%E5%8F%82%E6%95%B0"><span class="nav-text">5.2.3  发送异步请求携带参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-JSON%E4%B8%B2%E5%92%8CJava%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="nav-text">5.3  JSON串和Java对象的相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-Fastjson-%E6%A6%82%E8%BF%B0"><span class="nav-text">5.3.1  Fastjson 概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-2-Fastjson-%E4%BD%BF%E7%94%A8"><span class="nav-text">5.3.2  Fastjson 使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-3-%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA"><span class="nav-text">5.3.3  代码演示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%EF%BC%8C%E6%A1%88%E4%BE%8B"><span class="nav-text">6，案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E9%9C%80%E6%B1%82"><span class="nav-text">6.1  需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%8A%9F%E8%83%BD"><span class="nav-text">6.2  查询所有功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">6.2.1  环境准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-2-%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">6.2.2  后端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-3-%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">6.2.3  前端实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E6%B7%BB%E5%8A%A0%E5%93%81%E7%89%8C%E5%8A%9F%E8%83%BD"><span class="nav-text">6.3  添加品牌功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-%E5%90%8E%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">6.3.1  后端实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-2-%E5%89%8D%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="nav-text">6.3.2  前端实现</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -222,16 +271,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,13 +295,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
+      <meta itemprop="name" content=" | Mxeron">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/17/JavaWeb/Filter&Listener&Ajax/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -295,7 +345,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Filter-amp-Listener-amp-Ajax"><a href="#Filter-amp-Listener-amp-Ajax" class="headerlink" title="Filter&amp;Listener&amp;Ajax"></a>Filter&amp;Listener&amp;Ajax</h3><ul>
+        <h3 id="Filter-amp-Listener-amp-Ajax"><a href="#Filter-amp-Listener-amp-Ajax" class="headerlink" title="Filter&amp;Listener&amp;Ajax"></a>Filter&amp;Listener&amp;Ajax</h3><ul>
 <li>能够使用 Filter 完成登陆状态校验功能</li>
 <li>能够使用 axios 发送 ajax 请求</li>
 <li>熟悉 json 格式，并能使用 Fastjson 完成 java 对象和 json 串的相互转换</li>
@@ -878,7 +928,6 @@
 <p>&#x3D;&#x3D;说明：&#x3D;&#x3D;</p>
 <p><code>查询所有</code> 功能和 <code>添加品牌</code> 功能就全部实现，大家肯定会感觉前端的代码很复杂；而这只是暂时的，后面学习了 <code>vue</code> 前端框架后，这部分前端代码就可以进行很大程度的简化。</p>
 
-      
     </div>
 
     
@@ -886,988 +935,53 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_6319(20220801-175804).JPG" alt="Mxeron WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_6320(20220801-175816).JPG" alt="Mxeron Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/16/JavaWeb/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/16/JavaWeb/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">会话技术</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-16 20:22:38" itemprop="dateCreated datePublished" datetime="2022-08-16T20:22:38+08:00">2022-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-18 13:32:39" itemprop="dateModified" datetime="2022-08-18T13:32:39+08:00">2022-08-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/%E4%BC%9A%E8%AF%9D/" itemprop="url" rel="index"><span itemprop="name">会话</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>58k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>53 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="会话技术"><a href="#会话技术" class="headerlink" title="会话技术"></a>会话技术</h3><ul>
-<li>理解什么是会话跟踪技术</li>
-<li>掌握Cookie的使用</li>
-<li>掌握Session的使用</li>
-<li>完善用户登录注册案例的功能</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/16/JavaWeb/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/13/JavaWeb/JSP%E5%92%8CServlet/JSP%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/13/JavaWeb/JSP%E5%92%8CServlet/JSP%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">JSP入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-13 20:22:38" itemprop="dateCreated datePublished" datetime="2022-08-13T20:22:38+08:00">2022-08-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-17 18:12:22" itemprop="dateModified" datetime="2022-08-17T18:12:22+08:00">2022-08-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/JSP/" itemprop="url" rel="index"><span itemprop="name">JSP</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>43k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>39 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="JSP-概述"><a href="#JSP-概述" class="headerlink" title="JSP 概述"></a>JSP 概述</h3><p>JSP（全称：Java Server Pages）：Java 服务端页面。&#x3D;&#x3D;是一种动态的网页技术，其中既可以定义 HTML、JS、CSS等静态内容，还可以定义 Java代码的动态内容，也就是 <code>JSP = HTML + Java</code>。如下就是jsp代码</p>
-<figure class="highlight jsp"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Title&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h1&gt;JSP,Hello World&lt;/h1&gt;</span><br><span class="line">        &lt;%</span><br><span class="line">        	System.out.println(<span class="string">&quot;hello,jsp~&quot;</span>);</span><br><span class="line">        %&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>上面代码 <code>h1</code> 标签内容是展示在页面上，而 Java 的输出语句是输出在 idea 的控制台。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/13/JavaWeb/JSP%E5%92%8CServlet/JSP%E5%85%A5%E9%97%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/12/Algorithm/%E8%B4%AA%E5%BF%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/12/Algorithm/%E8%B4%AA%E5%BF%83/" class="post-title-link" itemprop="url">贪心</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-12 15:22:38" itemprop="dateCreated datePublished" datetime="2022-08-12T15:22:38+08:00">2022-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-14 13:11:12" itemprop="dateModified" datetime="2022-08-14T13:11:12+08:00">2022-08-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/%E8%B4%AA%E5%BF%83/" itemprop="url" rel="index"><span itemprop="name">贪心</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>970</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="455-分发饼干-简单"><a href="#455-分发饼干-简单" class="headerlink" title="455.分发饼干(简单)"></a>455.分发饼干(简单)</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/assign-cookies/">https://leetcode.cn/problems/assign-cookies/</a></p>
-<p>思路：对于每个小孩，我们把刚好能够满足其胃口值的饼干分配给他，从小到大遍历小孩的胃口值和饼干，可以借助双指针，不用写双层for循环。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findContentChildren</span><span class="params">(<span class="type">int</span>[] g, <span class="type">int</span>[] s)</span> &#123;</span><br><span class="line">        Arrays.sort(g);</span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> g.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> s.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>, j = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s[j] &gt;= g[i]) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                j++;</span><br><span class="line">                <span class="comment">// 当前饼干不能满足小孩胃口</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/12/Algorithm/%E8%B4%AA%E5%BF%83/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/06/JavaWeb/JSP%E5%92%8CServlet/Servlet%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/06/JavaWeb/JSP%E5%92%8CServlet/Servlet%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Servlet入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-06 20:22:38" itemprop="dateCreated datePublished" datetime="2022-08-06T20:22:38+08:00">2022-08-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-17 18:11:27" itemprop="dateModified" datetime="2022-08-17T18:11:27+08:00">2022-08-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/Servlet/" itemprop="url" rel="index"><span itemprop="name">Servlet</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>42k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>38 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220806202630.png" width=80%></div>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/06/JavaWeb/JSP%E5%92%8CServlet/Servlet%E5%85%A5%E9%97%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/05/JavaWeb/HTML/HTML%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/05/JavaWeb/HTML/HTML%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">HTML入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-05 22:22:38" itemprop="dateCreated datePublished" datetime="2022-08-05T22:22:38+08:00">2022-08-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-06 11:40:54" itemprop="dateModified" datetime="2022-08-06T11:40:54+08:00">2022-08-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>62</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>前端学习网站：<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/%EF%BC%8C%E5%8F%AA%E9%9C%80%E8%A6%81%E8%BF%9B%E5%85%A5%E7%BD%91%E7%AB%99%E5%AD%A6%E4%B9%A0%E5%8D%B3%E5%8F%AF%EF%BC%8C%E9%9D%9E%E5%B8%B8%E7%9A%84%E6%96%B9%E4%BE%BF%E3%80%82">https://www.w3school.com.cn/，只需要进入网站学习即可，非常的方便。</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/05/JavaWeb/HTML/HTML%E5%85%A5%E9%97%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/04/JavaWeb/MyBatis/MyBatis%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/04/JavaWeb/MyBatis/MyBatis%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">MyBatis入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-04 13:22:38" itemprop="dateCreated datePublished" datetime="2022-08-04T13:22:38+08:00">2022-08-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-17 12:07:57" itemprop="dateModified" datetime="2022-08-17T12:07:57+08:00">2022-08-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/MyBatis/" itemprop="url" rel="index"><span itemprop="name">MyBatis</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>36k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>33 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="什么是MyBatis"><a href="#什么是MyBatis" class="headerlink" title="什么是MyBatis"></a>什么是MyBatis</h3><p>MyBatis是一款优秀的<strong>持久层框架</strong>，用于简化JDBC开发<br>官网：<a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/zh/index.html">https://mybatis.org/mybatis-3/zh/index.html</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/04/JavaWeb/MyBatis/MyBatis%E5%85%A5%E9%97%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/03/JavaWeb/Maven/Maven%E5%85%A5%E9%97%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/03/JavaWeb/Maven/Maven%E5%85%A5%E9%97%A8/" class="post-title-link" itemprop="url">Maven入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-03 20:22:38" itemprop="dateCreated datePublished" datetime="2022-08-03T20:22:38+08:00">2022-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-05 21:52:08" itemprop="dateModified" datetime="2022-08-05T21:52:08+08:00">2022-08-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>3.1k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>3 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Maven简介"><a href="#Maven简介" class="headerlink" title="Maven简介"></a>Maven简介</h3><p>Maven是专门用于管理和构建Java项目的工具，主要功能如下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/03/JavaWeb/Maven/Maven%E5%85%A5%E9%97%A8/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/03/JavaWeb/Mysql/JDBC%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/03/JavaWeb/Mysql/JDBC%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">JDBC相关操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-08-03 14:22:38 / Modified: 20:06:10" itemprop="dateCreated datePublished" datetime="2022-08-03T14:22:38+08:00">2022-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>7.6k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>7 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="JDBC-Java-DataBase-Connectivity"><a href="#JDBC-Java-DataBase-Connectivity" class="headerlink" title="JDBC(Java DataBase Connectivity)"></a>JDBC(Java DataBase Connectivity)</h3><p>JDBC是使用Java语言操作关系型数据库的一套API，用一套Java代码操作不同的关系型数据库</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/03/JavaWeb/Mysql/JDBC%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/08/03/JavaWeb/Mysql/MySQL%E5%87%BD%E6%95%B0%E4%B8%8E%E8%A7%86%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
-      <meta itemprop="name" content="Mxeron">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mxeron">
-      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Mxeron">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/03/JavaWeb/Mysql/MySQL%E5%87%BD%E6%95%B0%E4%B8%8E%E8%A7%86%E5%9B%BE/" class="post-title-link" itemprop="url">MySQL函数与视图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-08-03 14:22:38 / Modified: 20:08:20" itemprop="dateCreated datePublished" datetime="2022-08-03T14:22:38+08:00">2022-08-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JavaWeb/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>0</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
           
-      
-    </div>
 
-    
-    
-    
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Mxeron
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/" title="">https://mxeron.github.io/2022/08/17/JavaWeb/Filter&Listener&Ajax/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/16/JavaWeb/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AF/" rel="prev" title="会话技术">
+                  <i class="fa fa-chevron-left"></i> 会话技术
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -1875,10 +989,9 @@
 
 
 
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
 
+
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -1953,7 +1066,7 @@ setInterval("createtime()",250);
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Mxeron","repo":"blog-comments","client_id":"12faa54946b5cf99fa6e","client_secret":"07765f616db462a6d9b583f8a47d0db6bf6fff6f","admin_user":"Mxeron","distraction_free_mode":true,"proxy":"https://cors-server-ecru.vercel.app/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"d1546d731a9f30cc80127d57142a482b"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Mxeron","repo":"blog-comments","client_id":"12faa54946b5cf99fa6e","client_secret":"07765f616db462a6d9b583f8a47d0db6bf6fff6f","admin_user":"Mxeron","distraction_free_mode":true,"proxy":"https://cors-server-ecru.vercel.app/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"4b3384f362e00229251c053bd3c596df"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
