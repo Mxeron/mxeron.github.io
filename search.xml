@@ -3031,36 +3031,40 @@
 <li>熟悉 json 格式，并能使用 Fastjson 完成 java 对象和 json 串的相互转换</li>
 <li>使用 axios + json 完成综合案例</li>
 </ul>
-<h2 id="1，Filter"><a href="#1，Filter" class="headerlink" title="1，Filter"></a>1，Filter</h2><h3 id="1-1-Filter概述"><a href="#1-1-Filter概述" class="headerlink" title="1.1  Filter概述"></a>1.1  Filter概述</h3><p>Filter 表示过滤器，是 JavaWeb 三大组件(Servlet、Filter、Listener)之一。Servlet 我们之前都已经学习过了，Filter和Listener 我们今天都会进行学习。</p>
-<p>过滤器可以把对资源的请求&#x3D;&#x3D;拦截&#x3D;&#x3D;下来，从而实现一些特殊的功能。</p>
+<span id="more"></span>
+
+<h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><p>Filter 表示过滤器，是 JavaWeb 三大组件(Servlet、Filter、Listener)之一。Servlet 我们之前都已经学习过了，Filter和Listener 我们今天都会进行学习。</p>
+<p><strong>过滤器可以把对资源的请求拦截下来，从而实现一些特殊的功能。</strong></p>
 <p>如下图所示，浏览器可以访问服务器上的所有的资源（servlet、jsp、html等）</p>
-<img src="assets/image-20210823184519509.png" alt="image-20210823184519509" style="zoom:50%;" />
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823184519509.png" width=80%></div>
 
-<p>而在访问到这些资源之前可以使过滤器拦截来下，也就是说在访问资源之前会先经过 Filter，如下图</p>
-<img src="assets/image-20210823184657328.png" alt="image-20210823184657328" style="zoom:57%;" />
+<p>而在访问到这些资源之前可以使过滤器拦截来下，也就是说<strong>在访问资源之前会先经过Filter</strong>，如下图：</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823184657328.png" width=80%></div>
 
-<p>拦截器拦截到后可以做什么功能呢？</p>
-<p>&#x3D;&#x3D;过滤器一般完成一些通用的操作。&#x3D;&#x3D;比如每个资源都要写一些代码完成某个功能，我们总不能在每个资源中写这样的代码吧，而此时我们可以将这些代码写在过滤器中，因为请求每一个资源都要经过过滤器。</p>
-<p>我们之前做的品牌数据管理的案例中就已经做了登陆的功能，而如果我们不登录能不能访问到数据呢？我们可以在浏览器直接访问首页 ，可以看到 <code>查询所有</code> 的超链接</p>
-<img src="assets/image-20210823185720197.png" alt="image-20210823185720197" style="zoom:70%;" />
+<p><strong>拦截器拦截到后可以做什么功能呢？</strong></p>
+<p>过滤器一般完成一些<strong>通用的操作</strong>，比如每个资源都要写一些代码完成某个功能，我们总不能在每个资源中写这样的代码吧，而此时<strong>我们可以将这些代码写在过滤器中，因为请求每一个资源都要经过过滤器。</strong></p>
+<p>我们之前做的品牌数据管理的案例中就已经做了登录的功能，而如果我们<strong>不登录能不能访问到数据呢？</strong></p>
+<p>我们可以在浏览器直接访问首页，可以看到查询所有的超链接</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823185720197.png" width=80%></div>
 
 <p>当我点击该按钮，居然可以看到品牌的数据</p>
-<img src="assets/image-20210823185932418.png" alt="image-20210823185932418" style="zoom:70%;" />
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823185932418.png" width=80%></div>
 
-<p>这显然和我们的要求不符。我们希望实现的效果是用户如果登陆过了就跳转到品牌数据展示的页面；如果没有登陆就跳转到登陆页面让用户进行登陆，要实现这个效果需要在每一个资源中都写上这段逻辑，而像这种通用的操作，我们就可以放在过滤器中进行实现。这个就是&#x3D;&#x3D;权限控制&#x3D;&#x3D;，以后我们还会进行细粒度权限控制。过滤器还可以做 <code>统一编码处理</code>、 <code>敏感字符处理</code> 等等…</p>
-<h3 id="1-2-Filter快速入门"><a href="#1-2-Filter快速入门" class="headerlink" title="1.2  Filter快速入门"></a>1.2  Filter快速入门</h3><h4 id="1-2-1-开发步骤"><a href="#1-2-1-开发步骤" class="headerlink" title="1.2.1  开发步骤"></a>1.2.1  开发步骤</h4><p>进行 <code>Filter</code> 开发分成以下三步实现</p>
+<p>这显然和我们的要求不符！我们希望实现的效果是用户如果登陆过了就跳转到品牌数据展示的页面；<strong>如果没有登陆就跳转到登陆页面让用户进行登陆，要实现这个效果需要在每一个资源中都写上这段逻辑，而像这种通用的操作，我们就可以放在过滤器中进行实现。</strong></p>
+<p>这个就是<strong>权限控制</strong>，以后我们还会进行细粒度权限控制。过滤器还可以做 <code>统一编码处理</code>、 <code>敏感字符处理</code> 等等…</p>
+<h3 id="Filter快速入门"><a href="#Filter快速入门" class="headerlink" title="Filter快速入门"></a>Filter快速入门</h3><h4 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h4><p>进行 <code>Filter</code> 开发分成以下三步实现</p>
 <ul>
 <li><p>定义类，实现 Filter接口，并重写其所有方法</p>
-<img src="assets/image-20210823191006878.png" alt="image-20210823191006878" style="zoom:60%;" />
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823191006878.png" width=80%></div>
 </li>
 <li><p>配置Filter拦截资源的路径：在类上定义 <code>@WebFilter</code> 注解。而注解的 <code>value</code> 属性值 <code>/*</code> 表示拦截所有的资源</p>
-<img src="assets/image-20210823191037163.png" alt="image-20210823191037163" style="zoom:67%;" />
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823191037163.png" width=80%></div>
 </li>
-<li><p>在doFilter方法中输出一句话，并放行</p>
-<img src="assets/image-20210823191200201.png" alt="image-20210823191200201" style="zoom:60%;" />
+<li><p>在doFilter方法中输出一句话，并放行，放行是说让其继续访问资源</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20210823191200201.png" width=80%></div>
 
 <blockquote>
-<p>上述代码中的 <code>chain.doFilter(request,response);</code> 就是放行，也就是让其访问本该访问的资源。</p>
+<p>上述代码中的 <code>chain.doFilter(request,response);</code> 就是放行，也就是让其访问本该访问的资源</p>
 </blockquote>
 </li>
 </ul>
