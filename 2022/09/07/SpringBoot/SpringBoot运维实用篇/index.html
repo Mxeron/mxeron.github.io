@@ -33,6 +33,8 @@
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211201091341645.png">
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211201091502040.png">
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220907220506.png">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220909180045.png">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220909175932.png">
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211201094223991.png">
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211201095610270.png">
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211201101541267.png">
@@ -52,7 +54,7 @@
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211206110958819.png">
 <meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/image-20211206123431222.png">
 <meta property="article:published_time" content="2022-09-07T13:22:38.000Z">
-<meta property="article:modified_time" content="2022-09-09T08:35:55.802Z">
+<meta property="article:modified_time" content="2022-09-09T10:04:31.336Z">
 <meta property="article:author" content="Mxeron">
 <meta property="article:tag" content="SpringBoot">
 <meta name="twitter:card" content="summary">
@@ -296,7 +298,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-09 16:35:55" itemprop="dateModified" datetime="2022-09-09T16:35:55+08:00">2022-09-09</time>
+      <time title="Modified: 2022-09-09 18:04:31" itemprop="dateModified" datetime="2022-09-09T18:04:31+08:00">2022-09-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,14 +316,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>15k</span>
+      <span>18k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>14 mins.</span>
+      <span>16 mins.</span>
     </span>
 </div>
 
@@ -371,6 +373,29 @@
 <p><strong>​打包后会产生一个与工程名类似的jar文件，其名称是由模块名+版本号+.jar组成的。</strong></p>
 <div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220907220506.png" width=80%></div>
 
+<hr>
+<p>在打包之前，最好自己练习练习之前的学习内容：【这里就直接使用springboot+MP来写，比较方便】</p>
+<p><strong>创建项目时勾选：</strong></p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220909180045.png" width=60%></div>
+
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220909175932.png" width=60%></div>
+
+
+<p>Book</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> <span class="keyword">extends</span> <span class="title class_">Model</span>&lt;Book&gt; &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 使用注解将id配置为自增型</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="comment">//    @TableField(select = false)  // 指定当前字段不会被查询，之后会自动封装成null</span></span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@TableField(value = &quot;description&quot;)</span>  <span class="comment">// 指定当前属性与数据库中某个字段的对应关系</span></span><br><span class="line">    <span class="keyword">private</span> String des;</span><br><span class="line">    <span class="meta">@TableField(exist = false)</span>  <span class="comment">// 该字段在数据库中不存在，之后会自动封装为null</span></span><br><span class="line">    <span class="keyword">private</span> String add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>BookDao</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;Book&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>BookService</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>  <span class="comment">// 开启spring事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> book</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">save</span><span class="params">(Book book)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> book</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">update</span><span class="params">(Book book)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按id删除</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">(Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 按id查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查询全部</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>BookServiceImpl</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">save</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.insert(book) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">update</span><span class="params">(Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.updateById(book) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.deleteById(id) &gt; <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(Integer id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.selectById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookDao.selectList(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>最关键的：BookController</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="comment">// 代表返回的是json格式的数据，这个注解是Spring4之后新加的注解</span></span><br><span class="line"><span class="comment">// 原来返回json格式的数据需要@ResponseBody配合@Controller一起使用</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Rest风格</span></span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> Book book)</span> &#123;</span><br><span class="line">        <span class="comment">// 使用@RequestBody注解将外部传递的json数组数据映射到形参的集合对象中作为数据</span></span><br><span class="line">        <span class="keyword">return</span> bookService.save(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PutMapping</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">update</span><span class="params">(<span class="meta">@RequestBody</span> Book book)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.update(book);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@DeleteMapping(&quot;/&#123;num&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">delete</span><span class="params">(<span class="meta">@PathVariable(name = &quot;num&quot;)</span> Integer id)</span> &#123;</span><br><span class="line">        <span class="comment">// 使用@PathVariable注解，获取url中的参数</span></span><br><span class="line">        <span class="comment">// 如果url中参数名和形参名不一致，则需要使用name指定对应的url参数名</span></span><br><span class="line">        <span class="comment">// @RequestParam中的name和value属性也是完全等价的</span></span><br><span class="line">        <span class="keyword">return</span> bookService.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(<span class="meta">@PathVariable</span> Integer id)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.getById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Book&gt; <span class="title function_">getAll</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> bookService.getAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
 <h3 id="程序运行"><a href="#程序运行" class="headerlink" title="程序运行"></a>程序运行</h3><p><strong>​程序包打好以后，就可以直接执行了。在程序包所在路径下，执行指令。</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java -jar 工程包名.jar</span><br></pre></td></tr></table></figure>
 
@@ -827,13 +852,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">647k</span>
+    <span title="Symbols count total">649k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">9:48</span>
+    <span title="Reading time total">9:50</span>
   </span>
 </div>
 
