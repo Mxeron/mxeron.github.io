@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"mxeron.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="什么是MybatisPlus（MP）MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatisPlus入门">
+<meta property="og:url" content="https://mxeron.github.io/2022/09/08/JavaWeb/MyBatis/MyBatisPlus%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Mxeron">
+<meta property="og:description" content="什么是MybatisPlus（MP）MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908141557.png">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908144448.png">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908150004.png">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908150132.png">
+<meta property="og:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220909155741.png">
+<meta property="article:published_time" content="2022-09-08T05:22:38.000Z">
+<meta property="article:modified_time" content="2022-09-09T08:10:28.912Z">
+<meta property="article:author" content="Mxeron">
+<meta property="article:tag" content="MyBatisPlus">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908141557.png">
+
+
+<link rel="canonical" href="https://mxeron.github.io/2022/09/08/JavaWeb/MyBatis/MyBatisPlus%E5%85%A5%E9%97%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://mxeron.github.io/2022/09/08/JavaWeb/MyBatis/MyBatisPlus%E5%85%A5%E9%97%A8/","path":"2022/09/08/JavaWeb/MyBatis/MyBatisPlus入门/","title":"MyBatisPlus入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MyBatisPlus入门 | Mxeron</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Mxeron</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-house-user fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-address-card fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFMybatisPlus%EF%BC%88MP%EF%BC%89"><span class="nav-text">什么是MybatisPlus（MP）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MP%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-text">MP的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8MP%E5%AE%9E%E7%8E%B0CRUD"><span class="nav-text">使用MP实现CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5"><span class="nav-text">插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-text">更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-text">查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wrapper%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AF%94%E8%BE%83%E6%93%8D%E4%BD%9C"><span class="nav-text">wrapper中的基本比较操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="nav-text">模糊查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E6%9F%A5%E8%AF%A2"><span class="nav-text">逻辑查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ActiveRecord"><span class="nav-text">ActiveRecord</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Mxeron"
+      src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
+  <p class="site-author-name" itemprop="name">Mxeron</p>
+  <div class="site-description" itemprop="description">Mxeron's Blog, Welcome!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Mxeron" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Mxeron" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:mxeron_sxy@163.com" title="E-Mail → mailto:mxeron_sxy@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/Mxeron" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;Mxeron" rel="noopener" target="_blank">Mxeron's CSDN</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/Mxeron" title="https:&#x2F;&#x2F;github.com&#x2F;Mxeron" rel="noopener" target="_blank">Mxeron's Github</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Mxeron" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://mxeron.github.io/2022/09/08/JavaWeb/MyBatis/MyBatisPlus%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_5598(20220525-204837).JPG">
+      <meta itemprop="name" content="Mxeron">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mxeron">
+      <meta itemprop="description" content="Mxeron's Blog, Welcome!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MyBatisPlus入门 | Mxeron">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MyBatisPlus入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-09-08 13:22:38" itemprop="dateCreated datePublished" datetime="2022-09-08T13:22:38+08:00">2022-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-09 16:10:28" itemprop="dateModified" datetime="2022-09-09T16:10:28+08:00">2022-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaWeb/" itemprop="url" rel="index"><span itemprop="name">JavaWeb</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaWeb/MyBatisPlus/" itemprop="url" rel="index"><span itemprop="name">MyBatisPlus</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>9.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="什么是MybatisPlus（MP）"><a href="#什么是MybatisPlus（MP）" class="headerlink" title="什么是MybatisPlus（MP）"></a>什么是MybatisPlus（MP）</h3><p>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<span id="more"></span>
+
+<h3 id="MP的特性"><a href="#MP的特性" class="headerlink" title="MP的特性"></a>MP的特性</h3><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908141557.png" width=80%></div>
+
+
+<blockquote>
+<p><strong>这里只学习在SpringBoot下的MP配置和使用方法</strong></p>
+</blockquote>
+<ol>
+<li>在创建SpringBoot项目时，勾选上mybatisplus(在阿里提供的spring网址中才有)</li>
+</ol>
+<blockquote>
+<p>别忘了去配置application.properties!!!</p>
+</blockquote>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 应用名称</span></span><br><span class="line"><span class="attr">spring.application.name</span>=<span class="string">springboot_03_mybatisplus</span></span><br><span class="line"><span class="comment"># 数据库驱动：</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="comment"># 数据源名称</span></span><br><span class="line"><span class="attr">spring.datasource.name</span>=<span class="string">defaultDataSource</span></span><br><span class="line"><span class="comment"># 数据库连接地址</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://localhost:3306/ssm_db?serverTimezone=Asia/Shanghai</span></span><br><span class="line"><span class="comment"># 数据库用户名&amp;密码：</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">801299</span></span><br><span class="line"><span class="comment"># 应用服务 WEB 访问端口</span></span><br><span class="line"><span class="attr">server.port</span>=<span class="string">80</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 修改mybatis-plus的默认数据库名的前缀名：tbl_</span></span><br><span class="line"><span class="attr">mybatis-plus.global-config.db-config.table-prefix</span>=<span class="string">tbl_</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 设置主键为自增型，但必须要数据库中主键同样为自增</span></span><br><span class="line"><span class="attr">mybatis-plus.global-config.db-config.id-type</span>=<span class="string">auto</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># 设置mybatis-plus的日志打印情况</span></span><br><span class="line"><span class="attr">mybatis-plus.configuration.log-impl</span>=<span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>创建dao层接口，并添加Mapper注解</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Mapper</span>  <span class="comment">// 别忘了添加Mapper注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;Book&gt; &#123;  <span class="comment">// mybatisplus的写法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>也可以不在这里添加@Mapper注解，而是在SpringBoot的运行类类名上添加:@MapperScan()注解，自动进行mapper包扫描</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@MapperScan(&quot;com.mxeron.dao&quot;)</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Springboot04CaseApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Springboot04CaseApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>BookDao继承的BaseMapper<Book>接口中，已经提前写好了很多sql语句，可以直接进行使用</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookDaoTestCase</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testGetById</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(bookDao.selectById(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用MP实现CRUD"><a href="#使用MP实现CRUD" class="headerlink" title="使用MP实现CRUD"></a>使用MP实现CRUD</h3><p>首先，需要告诉数据库，哪个pojo(entity)与哪张表是相互对应的，使用@TableName(“数据库表名”)注解：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这一步也可以在application.properties中进行配置：【不推荐】</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改mybatis-plus的默认数据库名的前缀名：tbl_</span></span><br><span class="line"><span class="attr">mybatis-plus.global-config.db-config.table-prefix</span>=<span class="string">tbl_</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>只用设置前缀，因为默认是把entity的类名小写当作表名</strong></p>
+<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">    book.setType(<span class="string">&quot;测试数据345&quot;</span>);</span><br><span class="line">    book.setName(<span class="string">&quot;测试数据345&quot;</span>);</span><br><span class="line">    book.setDescription(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">    <span class="comment">// 返回的result是受影响的行数</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> bookDao.insert(book);</span><br><span class="line">    System.out.println(<span class="string">&quot;result : &quot;</span> + result);</span><br><span class="line">    <span class="comment">// 自增后的id会回填到对象中</span></span><br><span class="line">    System.out.println(book.getId());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果前面没有按照同样的application.properties进行设置，这里会导致id不是连续增长的：</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908144448.png" width=80%></div>
+
+<p><strong>解决方法：</strong></p>
+<p><strong>方法一：</strong></p>
+<p>在application.properties中添加：</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置主键为自增型，但必须要数据库中主键同样为自增</span></span><br><span class="line"><span class="attr">mybatis-plus.global-config.db-config.id-type</span>=<span class="string">auto</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二：</strong></p>
+<p>使用@TableId(type &#x3D; IdType.AUTO) &#x2F;&#x2F;指定id类型为自增长：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 使用注解将id配置为自增型</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在MP中通过@TableField注解可以指定字段的一些属性，常常解决的问题有2个：</strong></p>
+<p>1、对象中的属性名和字段名不一致的问题（非驼峰）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 使用注解将id配置为自增型</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@TableField(value = &quot;description&quot;)</span>  <span class="comment">// 指定当前属性与数据库中某个字段的对应关系</span></span><br><span class="line">    <span class="keyword">private</span> String des;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>本来在数据库中叫description的值，改成了des：【<strong>这种映射是双向的，在进行update的时候也会把des映射到description</strong>】</p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908150004.png" width=80%></div>
+
+
+<p>2、对象中的属性字段在表中不存在的问题</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 使用注解将id配置为自增型</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@TableField(value = &quot;description&quot;)</span>  <span class="comment">// 指定当前属性与数据库中某个字段的对应关系</span></span><br><span class="line">    <span class="keyword">private</span> String des;</span><br><span class="line">    <span class="meta">@TableField(exist = false)</span>  <span class="comment">// 该字段在数据库中不存在，之后会自动封装为null</span></span><br><span class="line">    <span class="keyword">private</span> String add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>不存在的，自动封装为null</strong></p>
+<div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220908150132.png" width=80%></div>
+
+
+<p>3、指定某些字段不查询</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 使用注解将id配置为自增型</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="meta">@TableField(select = false)</span>  <span class="comment">// 指定当前字段不会被查询，之后会自动封装成null</span></span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@TableField(value = &quot;description&quot;)</span>  <span class="comment">// 指定当前属性与数据库中某个字段的对应关系</span></span><br><span class="line">    <span class="keyword">private</span> String des;</span><br><span class="line">    <span class="meta">@TableField(exist = false)</span>  <span class="comment">// 该字段在数据库中不存在，之后会自动封装为null</span></span><br><span class="line">    <span class="keyword">private</span> String add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>在MP中，更新有两种方式：<strong>根据id更新、根据条件更新</strong></p>
+<p><strong>根据id更新：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testUpdateById</span><span class="params">()</span>&#123;  <span class="comment">// 需要update哪个字段就set哪个字段</span></span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">    book.setId(<span class="number">1</span>);</span><br><span class="line">    book.setType(<span class="string">&quot;测试数据abcdefg&quot;</span>);</span><br><span class="line">    book.setName(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">    book.setDes(<span class="string">&quot;测试数据123&quot;</span>);</span><br><span class="line">    <span class="comment">// 根据id更新</span></span><br><span class="line">    bookDao.updateById(book);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>根据条件更新：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testUpdate</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">    book.setType(<span class="string">&quot;newwww&quot;</span>);</span><br><span class="line">    bookDao.updateById(book);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新的条件</span></span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    wrapper.eq(<span class="string">&quot;id&quot;</span>, <span class="number">1</span>);  <span class="comment">// id = 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行更新操作</span></span><br><span class="line">    System.out.println(bookDao.update(book, wrapper));</span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+
+
+<p><strong>或者，通过UpdateWrapper进行更新：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testUpdate</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="comment">//        Book book = new Book();</span></span><br><span class="line"><span class="comment">//        book.setType(&quot;newwww&quot;);</span></span><br><span class="line"><span class="comment">//        bookDao.updateById(book);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        // 更新的条件</span></span><br><span class="line"><span class="comment">//        QueryWrapper&lt;Book&gt; wrapper = new QueryWrapper&lt;&gt;();</span></span><br><span class="line"><span class="comment">//        wrapper.eq(&quot;id&quot;, 1);  // id = 1</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        // 执行更新操作</span></span><br><span class="line"><span class="comment">//        System.out.println(bookDao.update(book, wrapper));</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 更新的条件</span></span><br><span class="line">        UpdateWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">UpdateWrapper</span>&lt;&gt;();</span><br><span class="line">        wrapper.eq(<span class="string">&quot;id&quot;</span>, <span class="number">1</span>).set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;最新的修改&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 执行更新操作</span></span><br><span class="line">        System.out.println(bookDao.update(<span class="literal">null</span>, wrapper));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：wrapper的用法，后面会讲到</strong></p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p><strong>根据id删除：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testDeleteById</span><span class="params">()</span>&#123;</span><br><span class="line">    bookDao.deleteById(<span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据map中的key-value进行删除，多个key-value之间的逻辑关系为：and与</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDeleteByMap</span><span class="params">()</span> &#123;</span><br><span class="line">    Map&lt;String, Object&gt; columnMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    columnMap.put(<span class="string">&quot;id&quot;</span>,<span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 将columnMap中的元素设置为删除的条件，多个之间为and关系</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> bookDao.deleteByMap(columnMap);</span><br><span class="line">    System.out.println(<span class="string">&quot;result = &quot;</span> + result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据wrapper实体对象封装操作类对象进行删除：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDelete</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">    book.setId(<span class="number">2</span>);</span><br><span class="line">    <span class="comment">// 将实体对象进行包装，包装为操作条件【具体要看是什么操作】，多个属性间为and关系</span></span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;(book);</span><br><span class="line">    System.out.println(bookDao.delete(wrapper));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据id批量删除：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDeleteBatchIds</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 删除id为：1、10、20</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> bookDao.deleteBatchIds(Arrays.asList(<span class="number">1L</span>, <span class="number">10L</span>, <span class="number">20L</span>));</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4><p><strong>根据主键查询：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectByid</span><span class="params">()</span> &#123;</span><br><span class="line">    System.out.println(bookDao.selectById(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据主键批量查询：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectByBatchId</span><span class="params">()</span> &#123;</span><br><span class="line">    List&lt;Book&gt; books = bookDao.selectBatchIds(Arrays.asList(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>));</span><br><span class="line">    <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据查询包装类对象查询一条记录：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectOne</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 这个查询包装类，可以包装实体对象，也可以自己添加查询条件，包括模糊查询等</span></span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    wrapper.eq(<span class="string">&quot;id&quot;</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="comment">// 根据条件查询一条数据，如果结果超过一条会报错</span></span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> bookDao.selectOne(wrapper);</span><br><span class="line">    System.out.println(book);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据条件查询总记录条数：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectCount</span><span class="params">()</span> &#123;</span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">// 查询id值大于3的数据条数</span></span><br><span class="line">    wrapper.gt(<span class="string">&quot;id&quot;</span>, <span class="number">3</span>);</span><br><span class="line">    System.out.println(bookDao.selectCount(wrapper));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据条件查询所有记录：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectList</span><span class="params">()</span> &#123;</span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    wrapper.gt(<span class="string">&quot;id&quot;</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="comment">// 根据条件查询所有数据</span></span><br><span class="line">    List&lt;Book&gt; books = bookDao.selectList(wrapper);</span><br><span class="line">    <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据条件进行分页查询：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSelectPage</span><span class="params">()</span> &#123;</span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    wrapper.gt(<span class="string">&quot;id&quot;</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前第2页，每页显示5条记录</span></span><br><span class="line">    Page&lt;Book&gt; page = <span class="keyword">new</span> <span class="title class_">Page</span>(<span class="number">2</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据条件进行分页查询</span></span><br><span class="line">    bookDao.selectPage(page, wrapper);</span><br><span class="line">    <span class="comment">// 获取查询结果</span></span><br><span class="line">    List&lt;Book&gt; records = page.getRecords();</span><br><span class="line">    <span class="keyword">for</span> (Book book : records) &#123;</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="wrapper中的基本比较操作"><a href="#wrapper中的基本比较操作" class="headerlink" title="wrapper中的基本比较操作"></a>wrapper中的基本比较操作</h4><ul>
+<li>eq：等于</li>
+<li>ne：不等于</li>
+<li>gt：大于</li>
+<li>ge：大于等于</li>
+<li>lt：小于</li>
+<li>le：小于等于</li>
+<li>between：在值1到值2之间</li>
+<li>notBetween：不在值1到值2之间</li>
+<li>in：字段in(“字段名”, value0, value1…)</li>
+<li>not in：字段not in(“字段名”, value0, value1…)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">wrapper.eq(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;123456&quot;</span>)</span><br><span class="line">        .ge(<span class="string">&quot;age&quot;</span>, <span class="number">20</span>)</span><br><span class="line">        .in(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>, <span class="string">&quot;赵六&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><ul>
+<li>like：like ‘%值%’<ul>
+<li>eg: like(“name”, “王”) &#x3D;&gt; name like ‘%王%’</li>
+</ul>
+</li>
+<li>notLike：和上面相反</li>
+<li>likeLeft：like ‘%值’<ul>
+<li>eg: likeLeft(“name”, “王”) &#x3D;&gt; name like ‘%王’</li>
+</ul>
+</li>
+<li>likeRight：like ‘值%’<ul>
+<li>eg: likeRight(“name”, “王”) &#x3D;&gt; name like ‘王%’</li>
+</ul>
+</li>
+</ul>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><ul>
+<li>orderBy：orderBy(true, true, “id”, “name”) —&gt; order by id ASC,name ASC<ul>
+<li>true代表ASC【升序】，false代表DESC【倒序】</li>
+</ul>
+</li>
+<li>orderByAsc：orderByAsc(“id”, “name”) —&gt; order by id ASC,name ASC</li>
+<li>orderByDesc：orderByDesc(“id”, “name”) —&gt; order by id DESC,name DESC</li>
+</ul>
+<h4 id="逻辑查询"><a href="#逻辑查询" class="headerlink" title="逻辑查询"></a>逻辑查询</h4><ul>
+<li>or：主动调用 or 表示紧接着下一个方法用 or 连接(不调用 or <strong>则默认为使用 and 连接</strong>)</li>
+<li>and：默认</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// name=李四，或age=24</span></span><br><span class="line">wrapper.eq(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;李四&quot;</span>).or().eq(<span class="string">&quot;age&quot;</span>, <span class="number">24</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">testOrAnd</span><span class="params">()</span> &#123;</span><br><span class="line">    QueryWrapper&lt;Book&gt; wrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    wrapper.eq(<span class="string">&quot;id&quot;</span>, <span class="number">3</span>).or().eq(<span class="string">&quot;id&quot;</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;Book&gt; books = bookDao.selectList(wrapper);</span><br><span class="line">    <span class="keyword">for</span> (Book book : books) &#123;</span><br><span class="line">        System.out.println(book);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ActiveRecord"><a href="#ActiveRecord" class="headerlink" title="ActiveRecord"></a>ActiveRecord</h3><div align="center"><img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/20220909155741.png" width=80%></div>
+
+<p>在MP中，开启AR非常简单，只需要将实体对象继承Model即可：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="comment">// 注解@Data完成一个实体类对应的getter、setter、toString、equals、hashCode等操作的快速添加</span></span><br><span class="line"><span class="meta">@TableName(&quot;tbl_book&quot;)</span></span><br><span class="line"><span class="comment">// 指定对应的表名</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> <span class="keyword">extends</span> <span class="title class_">Model</span>&lt;Book&gt; &#123;</span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span>  <span class="comment">// 使用注解将id配置为自增型</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"><span class="comment">//    @TableField(select = false)  // 指定当前字段不会被查询，之后会自动封装成null</span></span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@TableField(value = &quot;description&quot;)</span>  <span class="comment">// 指定当前属性与数据库中某个字段的对应关系</span></span><br><span class="line">    <span class="keyword">private</span> String des;</span><br><span class="line">    <span class="meta">@TableField(exist = false)</span>  <span class="comment">// 该字段在数据库中不存在，之后会自动封装为null</span></span><br><span class="line">    <span class="keyword">private</span> String add;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>新增数据：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testARInsert</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">    book.setId(<span class="number">1</span>);  <span class="comment">// 因为之前设置类id为自增型，所以这里的设置无效</span></span><br><span class="line">    book.setName(<span class="string">&quot;测试数据1&quot;</span>);</span><br><span class="line">    book.setType(<span class="string">&quot;测试数据1&quot;</span>);</span><br><span class="line">    book.setDes(<span class="string">&quot;还没有描述...&quot;</span>);</span><br><span class="line">    <span class="comment">// 直接在book实体对象上调用insert方法</span></span><br><span class="line">    <span class="type">boolean</span> <span class="variable">insert</span> <span class="operator">=</span> book.insert();</span><br><span class="line">    System.out.println(insert);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询数据：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testARSelect</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Book</span>();</span><br><span class="line">    book.setId(<span class="number">1</span>);</span><br><span class="line">    System.out.println(book.selectById());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除操作：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testARDelete</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setId(<span class="number">7L</span>);</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">delete</span> <span class="operator">=</span> user.deleteById();</span><br><span class="line">    System.out.println(delete);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>条件查询：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testAR</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    QueryWrapper&lt;User&gt; userQueryWrapper = <span class="keyword">new</span> <span class="title class_">QueryWrapper</span>&lt;&gt;();</span><br><span class="line">    <span class="comment">// 根据前面的比较操作进行设置</span></span><br><span class="line">    userQueryWrapper.le(<span class="string">&quot;age&quot;</span>,<span class="string">&quot;20&quot;</span>);</span><br><span class="line">    List&lt;User&gt; users = user.selectList(userQueryWrapper);</span><br><span class="line">    <span class="keyword">for</span> (User user1 : users) &#123;</span><br><span class="line">        System.out.println(user1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_6319(20220801-175804).JPG" alt="Mxeron WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+      <div>
+        <img src="https://for-my-picgo.oss-cn-chengdu.aliyuncs.com/blogs/pictures/IMG_6320(20220801-175816).JPG" alt="Mxeron Alipay">
+        <span>Alipay</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Mxeron
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://mxeron.github.io/2022/09/08/JavaWeb/MyBatis/MyBatisPlus%E5%85%A5%E9%97%A8/" title="MyBatisPlus入门">https://mxeron.github.io/2022/09/08/JavaWeb/MyBatis/MyBatisPlus入门/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/MyBatisPlus/" rel="tag"># MyBatisPlus</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/07/SpringBoot/SpringBoot%E8%BF%90%E7%BB%B4%E5%AE%9E%E7%94%A8%E7%AF%87/" rel="prev" title="SpringBoot运维实用篇">
+                  <i class="fa fa-chevron-left"></i> SpringBoot运维实用篇
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa-solid fa-shield-dog"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mxeron</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">646k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">9:47</span>
+  </span>
+</div>
+
+<div>
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("8/1/2022 00:00:00");
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Mxeron","repo":"blog-comments","client_id":"12faa54946b5cf99fa6e","client_secret":"07765f616db462a6d9b583f8a47d0db6bf6fff6f","admin_user":"Mxeron","distraction_free_mode":true,"proxy":"https://cors-server-ecru.vercel.app/github_access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"74eb95a0cf56f218157708eadaac82cf"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
